@@ -15,19 +15,27 @@ export const DataReducer = (state, action) => {
         if (names.indexOf(action.payload.item.toLowerCase()) === -1) {
           return { ...state, todos: [...state.todos, action.payload] };
         } else {
+          alert("Item already exists");
           return { ...state, todos: [...state.todos] };
         }
       } else {
         alert("please input  something");
       }
+      break;
+
+    case "TOGGLE_COMPLETED":
+      return {
+        ...state,
+        todos: state.todos.map(todo => {
+          if (todo.id === action.payload) {
+            return { ...todo, completed: !todo.completed };
+          } else {
+            return todo;
+          }
+        })
+      };
+      break;
     default:
       return state;
   }
 };
-
-// if (names.indexOf(action.payload.item.toLowerCase()) === -1) {
-//     return [...state.todos, action.payload];
-//   } else {
-//     return [...state.todos];
-//   }
-// }

@@ -18,7 +18,7 @@ const TodoList = () => {
       <h2>TodoList</h2>
       <AddTodo dispatch={dispatch} />
       {state.todos.map(todo => {
-        return <Todo key={todo.id} todo={todo} />;
+        return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
       })}
     </div>
   );
