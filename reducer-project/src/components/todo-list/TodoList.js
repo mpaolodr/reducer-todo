@@ -13,6 +13,11 @@ const TodoList = () => {
   const [state, dispatch] = useReducer(DataReducer, initialState);
   console.log(state.todos);
 
+  //   THIS IS STEP 5
+  const clearCompleted = () => {
+    dispatch({ type: "CLEAR_COMPLETED" });
+  };
+
   return (
     <div className="todo-list-container">
       <h2>TodoList</h2>
@@ -20,6 +25,8 @@ const TodoList = () => {
       {state.todos.map(todo => {
         return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
       })}
+
+      <button onClick={clearCompleted}>Clear Completed</button>
     </div>
   );
 };

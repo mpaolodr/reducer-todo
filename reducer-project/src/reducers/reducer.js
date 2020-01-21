@@ -19,7 +19,7 @@ export const DataReducer = (state, action) => {
           return { ...state, todos: [...state.todos] };
         }
       } else {
-        alert("please input  something");
+        alert("please input something");
       }
       break;
 
@@ -34,7 +34,15 @@ export const DataReducer = (state, action) => {
           }
         })
       };
-      break;
+
+    case "CLEAR_COMPLETED":
+      return {
+        ...state,
+        todos: state.todos.filter(todo => {
+          return todo.completed === false;
+        })
+      };
+
     default:
       return state;
   }

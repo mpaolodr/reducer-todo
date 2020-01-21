@@ -34,6 +34,7 @@ const AddTodo = ({ dispatch }) => {
       <input
         type="text"
         name="item"
+        required
         value={newTodo.item}
         onChange={handleChanges}
       />
