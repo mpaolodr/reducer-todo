@@ -6,6 +6,7 @@ import { DataReducer, initialState } from "../../reducers/reducer";
 
 //components
 import Todo from "./Todo";
+import AddTodo from "./AddTodo";
 
 const TodoList = () => {
   // still step 2
@@ -14,6 +15,7 @@ const TodoList = () => {
   return (
     <div className="todo-list-container">
       <h2>TodoList</h2>
+      <AddTodo />
       {state.todos.map(todo => {
         return <Todo key={todo.id} todo={todo} />;
       })}
