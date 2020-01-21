@@ -1,6 +1,8 @@
 //DATA
 import { data } from "../data";
 
+// THIS IS STEP 1
+
 export const initialState = {
   todos: data
 };
