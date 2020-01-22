@@ -71,6 +71,12 @@ h2.due {
   border-radius: 10px;
 }
 
+.no-todo {
+  text-align: center;
+  font-size: 5rem;
+  line-height: 56rem;
+}
+
 /* ADD TODO COMPONENT */
 
 form {

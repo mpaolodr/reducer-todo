@@ -23,9 +23,13 @@ const TodoList = () => {
       </div>
 
       <div className="todo-list-container">
-        {state.todos.map(todo => {
-          return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
-        })}
+        {state.todos.length !== 0 ? (
+          state.todos.map(todo => {
+            return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
+          })
+        ) : (
+          <h2 className="no-todo">No Todos</h2>
+        )}
       </div>
 
       <button className="clearBtn" onClick={clearCompleted}>
