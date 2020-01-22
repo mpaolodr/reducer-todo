@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-//THIS IS STEP 3
 const AddTodo = ({ dispatch }) => {
   const [newTodo, setNewTodo] = useState({
     item: "",
     id: null,
-    completed: false
+    completed: false,
+    due: ""
   });
 
   //handle changes in input field
@@ -26,7 +26,7 @@ const AddTodo = ({ dispatch }) => {
       }
     });
 
-    setNewTodo({ item: "", id: null, completed: false });
+    setNewTodo({ item: "", id: null, completed: false, due: "" });
   };
 
   return (
@@ -38,7 +38,16 @@ const AddTodo = ({ dispatch }) => {
         value={newTodo.item}
         onChange={handleChanges}
       />
-      <button type="submit">Add Todo</button>
+      <input
+        type="date"
+        name="due"
+        required
+        value={newTodo.due}
+        onChange={handleChanges}
+      />
+      <button type="submit" className="submitBtn">
+        Add Todo
+      </button>
     </form>
   );
 };

@@ -1,8 +1,6 @@
 //DATA
 import { data } from "../data";
 
-// THIS IS STEP 1
-
 export const initialState = {
   todos: data
 };
@@ -18,8 +16,6 @@ export const DataReducer = (state, action) => {
           alert("Item already exists");
           return { ...state, todos: [...state.todos] };
         }
-      } else {
-        alert("please input something");
       }
       break;
 

@@ -1,7 +1,6 @@
 import React, { useReducer } from "react";
 
-// THIS IS STEP 2
-//import reducer
+//reducer
 import { DataReducer, initialState } from "../../reducers/reducer";
 
 //components
@@ -9,24 +8,29 @@ import Todo from "./Todo";
 import AddTodo from "./AddTodo";
 
 const TodoList = () => {
-  // still step 2
   const [state, dispatch] = useReducer(DataReducer, initialState);
-  console.log(state.todos);
 
-  //   THIS IS STEP 5
+  //function to dispatch clear completed action
   const clearCompleted = () => {
     dispatch({ type: "CLEAR_COMPLETED" });
   };
 
   return (
-    <div className="todo-list-container">
-      <h2>TodoList</h2>
-      <AddTodo dispatch={dispatch} />
-      {state.todos.map(todo => {
-        return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
-      })}
+    <div className="todo-list">
+      <div className="title-container">
+        <h2 className="title">TodoList</h2>
+        <AddTodo dispatch={dispatch} />
+      </div>
 
-      <button onClick={clearCompleted}>Clear Completed</button>
+      <div className="todo-list-container">
+        {state.todos.map(todo => {
+          return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
+        })}
+      </div>
+
+      <button className="clearBtn" onClick={clearCompleted}>
+        Clear Completed
+      </button>
     </div>
   );
 };
